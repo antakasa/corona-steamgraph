@@ -1,9 +1,10 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import { json } from "d3-fetch";
-import { Dataviz } from "./Dataviz";
-import { Scrollama as ScrollyTeller, Step } from "react-scrollama";
+import { Dataviz } from "./components/Dataviz";
+import { CircleContainer } from "./components/Circles";
 import { initialize } from "./utils/initialize";
+import { ScrollyTeller } from "./components/ScrollyTeller";
 
 const settings = {
   startDate: "15.4.2020",
@@ -32,7 +33,7 @@ const App = () => {
   const [slides, storeSlides] = useState(null);
 
   useEffect(() => {
-    if(!data) return
+    if (!data) return;
     const { vizProps, slides } = initialize({ ...settings, data });
     setVizProps(vizProps);
     storeSlides(slides);
@@ -47,24 +48,8 @@ const App = () => {
     })();
   }, []);
 
-  const onStepEnter = ({ data, direction }) => {
-    const newIndex = direction === "up" && data > 0 ? data - 1 : data;
-    setCurrentStepIndex(newIndex);
-  };
-
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Koronaviruksen sanottiin syksyllä leviävän etenkin nuorten aikuisten
-          parissa.
-        </p>
-        <p>
-          Miltä todellisuus näyttää? Kuinka esimerkiksi korkeakoulujen
-          fuksiaiset tai kesäriennot vaikuttavat ikäryhmien osuuksiin
-          tartunnoissa?
-        </p>
-      </header>
       {!vizProps || !slides ? (
         <section>Ladataan...</section>
       ) : (
@@ -77,38 +62,14 @@ const App = () => {
               vizProps={vizProps}
               slideData={slides ? slides[currentStepIndex] : null}
             />
-            <div id="circle-container">
-              {slides.map((e, i) => (
-                <div
-                  id="circle"
-                  key={i}
-                  className={currentStepIndex >= i ? "seen" : "not-seen"}
-                ></div>
-              ))}
-            </div>
+            <CircleContainer
+              slides={slides}
+              currentStepIndex={currentStepIndex}
+            />
           </section>
-            <ScrollyTeller offset={1} onStepEnter={onStepEnter} debug>
-              {slides.map((_, stepIndex) => (
-                <Step data={stepIndex} key={stepIndex}>
-                  <div
-                    style={{
-                      margin: "50vh 0",
-                      zIndex: 999,
-                      position: "relative",
-                      transform: "translate3d(0,0,0)", // Needed for Safari to respect z index with sticky element
-                    }}
-                  >
-                    {_.text.map((e, i) => (
-                      <p
-                        className="text-paragraph"
-                        key={i}
-                        dangerouslySetInnerHTML={{ __html: e }}
-                      ></p>
-                    ))}
-                  </div>
-                </Step>
-              ))}
-            </ScrollyTeller>
+          <ScrollyTeller
+            setCurrentStepIndex={setCurrentStepIndex}
+            slides={slides}/>
         </>
       )}
     </div>
