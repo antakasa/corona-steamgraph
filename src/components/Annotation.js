@@ -19,10 +19,10 @@ export const Annotation = ({
     date = parseDate(date);
     return (
       <g>
-        <circle cx={xScale(x1)} cy={yScale(date)} r="2" fill="black" />
-        <circle cx={xScale(x2)} cy={yScale(date)} r="2" fill="black " />
+        <circle cx={xScale(x1)} cy={yScale(date)} r="2" fill="white" />
+        <circle cx={xScale(x2)} cy={yScale(date)} r="2" fill="white " />
         <path
-          style={{ stroke: "black", strokeWidth: 2, fill: "none" }}
+          style={{ stroke: "white", strokeWidth: 2, fill: "none" }}
           d={`
             M${xScale(x1)} ${orientation === "down"? yScale(date) + 5 : yScale(date) - 5} 
             L${xScale(x1)} ${
@@ -43,7 +43,7 @@ export const Annotation = ({
           }
           style={{
             fontSize: "13px",
-            fill: "black",
+            fill: "white",
             transform: "translateX(0px)",
           }}
         >

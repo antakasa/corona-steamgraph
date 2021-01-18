@@ -3,14 +3,21 @@ export const generateSlides = () => [
   {
     annotations: [],
     text: [
-      "Kuviossa näkyy tartunnat ikäryhmittäin. Tartunnoilla tarkoitetaan rekisteröityjä positiivisia testituloksia.",
+      "<b><x-large>KUINKA IKÄ NÄKYY TARTUNTATILASTOISSA?</x-large></b>",
+      "<small>Skrollaa alaspäin ⬇️</small>"
+    ],
+  },
+  {
+    annotations: [],
+    text: [
+      "Kuviossa näkyy covid-19-viruksen raportoidut tartunnat viiteen ikäryhmään jaoteltuna.", "Tartunnoilla tarkoitetaan rekisteröityjä positiivisia testituloksia.",
     ],
   },
   {
     highlightedLayers: ["20-39"],
     annotations: [],
     text: [
-      "Yksi alue edustaa yhtä ikäryhmää. Korostettuna näkyy tartuntamäärässä mitattuna suurin ryhmä eli 20–39-vuotiaat.",
+      "Yksi alue (väri) edustaa kuviossa yhtä ikäryhmää.", "Parhaillaan korostettuna näkyy tartuntamäärässä mitattuna suurin ryhmä eli 20–39-vuotiaat.",
     ],
   },
   {
@@ -62,14 +69,14 @@ export const generateSlides = () => [
     ],
    
     text: [
-      'Päivittäisen heilunnan tasaamiseksi tartuntoja kuvaavat datapisteet on laskettu kuviossa <a href="https://fi.wikipedia.org/wiki/Liukuva_keskiarvo" target="_blank">liukuviksi keskiarvoiksi</a> 7 päivän ajalta. ',
+      'Päivittäisen heilunnan tasaamiseksi tartuntoja kuvaavat datapisteet on laskettu kuviossa <a href="https://fi.wikipedia.org/wiki/Liukuva_keskiarvo" target="_blank">liukuviksi keskiarvoiksi</a> seitsemän päivän ajalta. ',
       "Teksteissä tartuntojen kappalemäärillä viitataan kuitenkin absoluuttisiin lukuihin.",
     ],
   },
   {
     annotations: [],
     text: ["Kunkin alueen leveys suhteessa muihin kuvaa tartuntojen lukumäärää.",
-    "Mitä leveämpi alue on, sitä enemmän tartuntoja rekisteröitiin."],
+    "Mitä leveämpi alue, sitä enemmän tartuntoja."],
   },
   {
     highlightedLayers: ["0-19", "20-39"],
@@ -77,10 +84,10 @@ export const generateSlides = () => [
     text: [
       `Alle 40-vuotiaiden osuus kaikista varmistetuista tartunnoista on noin ${Math.round(
         calculations.under40()
-      )} %.`,
-      `Ryhmän noin 2,5 miljoonaa jäsentä kattaa ${Math.round(
+      )} % &#185;.`,
+      `<span style="font-size: 12px">&#185;Ryhmän noin 2,5 miljoonaa jäsentä kattaa ${Math.round(
         calculations.under40ShareInPopulation()
-      )} % Suomen väestöstä.`,
+      )} % Suomen väestöstä.</font>`,
     ],
   },
   (()=> {
@@ -104,7 +111,7 @@ export const generateSlides = () => [
   (()=> {
     const data = calculations.mostInfectionsOnADateByGroups(["40-50", "50-60", "60-70", "70-80", "80-"])
     const date = data.date.date 
-    const text = [`Yli 40-vuotiailla nähtiin tosin myös samoihin aikoihin huomattava piikki.`]
+    const text = ['Myös vanhemmilla ikäryhmillä nähtiin samoihin aikoihin huomattavaa kasvua.']
     console.log(date)
     const annotations = [
       {
@@ -136,9 +143,12 @@ export const generateSlides = () => [
   })(),
   (()=> {
     const data = calculations.mostInfectionsOnADateByGroups(["00-10", "10-20", "20-30", "30-40"], "1.8.2020", "28.10.2020")
+    const data2 = calculations.mostInfectionsOnADateByGroups(["20-30"], "1.8.2020", "28.10.2020")
+    console.log(data2)
     const date = data.date.date 
     const text = [
-      `Esimerkiksi ${date}, rekisteröitiin ${data.maxValue} tartunaa alle 40-vuotialla.`]
+      `Korkeakoulujen alettua rekisteröitiin korkeimmillaan ${data.maxValue} tartuntaa alle 40-vuotialla (${date})`, `Tästä luvusta 
+      ${data2.maxValue} rekisteröitiin 20–30-vuotiaiden osaryhmässä.`]
     const annotations = [
       {
         date,
@@ -157,7 +167,7 @@ export const generateSlides = () => [
     const data = calculations.mostInfectionsOnADateByGroups(["40-50", "50-60", "60-70", "70-80", "80-"], "10.10.2020", "20.10.2020")
     const date = data.date.date 
     const text = [
-      `Yli 40-vuotialla rekisteröitiin samoihin aikoihin enimmillään ${data.maxValue} tartuntaa.`]
+      `Kaikilla yli 40-vuotialla rekisteröitiin samoihin aikoihin enimmillään ${data.maxValue} tartuntaa.`]
     const annotations = [
       {
         date,

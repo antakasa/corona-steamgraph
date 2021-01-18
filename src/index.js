@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 //import reportWebVitals from './reportWebVitals';
 
+console.info("NB! This visualisation does not work well in emualted environments e.g. under developer tools")
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

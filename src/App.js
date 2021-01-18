@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { json } from "d3-fetch";
 import { Dataviz } from "./components/Dataviz";
 import { CircleContainer } from "./components/Circles";
@@ -31,6 +31,8 @@ const App = () => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [vizProps, setVizProps] = useState(null);
   const [slides, storeSlides] = useState(null);
+  const [containerHeight, setContainerHeight] = useState(0);
+  const container = useRef(null)
 
   useEffect(() => {
     if (!data) return;
@@ -38,6 +40,15 @@ const App = () => {
     setVizProps(vizProps);
     storeSlides(slides);
   }, [data]);
+
+  useEffect(() => {
+    // container height is used to vertically align dataviz
+    if(container.current && containerHeight === 0) {
+       const {height} = container.current.getBoundingClientRect();
+       setContainerHeight(height)
+    }
+  })
+
 
   useEffect(() => {
     (async () => {
@@ -55,8 +66,9 @@ const App = () => {
       ) : (
         <>
           <section
+            ref={container}
             id="dataviz"
-            style={{ position: "sticky", top: 10, left: 0 }}
+            style={{ position: "sticky", top: (window.innerHeight / 2) - (containerHeight / 2) + "px", left: 0 }}
           >
             <Dataviz
               vizProps={vizProps}
