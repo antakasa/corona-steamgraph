@@ -4,7 +4,7 @@ export const generateSlides = () => [
     annotations: [],
     text: [
       "<b><x-large>KUINKA IKÄ NÄKYY TARTUNTATILASTOISSA?</x-large></b>",
-      "<small>Skrollaa alaspäin ⬇️</small>"
+      "<small>Skrollaa alaspäin ⬇</small>"
     ],
   },
   {
