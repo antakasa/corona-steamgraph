@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/corona-steamgraph/static/css/main.bfdd06f4.chunk.css",
+    "main.js": "/corona-steamgraph/static/js/main.402ce1ce.chunk.js",
+    "main.js.map": "/corona-steamgraph/static/js/main.402ce1ce.chunk.js.map",
+    "runtime-main.js": "/corona-steamgraph/static/js/runtime-main.e351c6a4.js",
+    "runtime-main.js.map": "/corona-steamgraph/static/js/runtime-main.e351c6a4.js.map",
+    "static/js/2.ee452341.chunk.js": "/corona-steamgraph/static/js/2.ee452341.chunk.js",
+    "static/js/2.ee452341.chunk.js.map": "/corona-steamgraph/static/js/2.ee452341.chunk.js.map",
+    "static/js/3.123699f8.chunk.js": "/corona-steamgraph/static/js/3.123699f8.chunk.js",
+    "static/js/3.123699f8.chunk.js.map": "/corona-steamgraph/static/js/3.123699f8.chunk.js.map",
+    "index.html": "/corona-steamgraph/index.html",
+    "static/css/main.bfdd06f4.chunk.css.map": "/corona-steamgraph/static/css/main.bfdd06f4.chunk.css.map",
+    "static/js/2.ee452341.chunk.js.LICENSE.txt": "/corona-steamgraph/static/js/2.ee452341.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e351c6a4.js",
+    "static/js/2.ee452341.chunk.js",
+    "static/css/main.bfdd06f4.chunk.css",
+    "static/js/main.402ce1ce.chunk.js"
+  ]
+}
