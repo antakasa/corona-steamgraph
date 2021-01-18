@@ -1,0 +1,14 @@
+.text-paragraph{
+    background: black;
+    padding: 10px;
+    width: calc(100% - 20px);
+    max-width: 500px;
+   margin:0;
+}
+.text-paragraph:nth-child(2){
+    background: black;
+    padding: 10px;
+    width: calc(100% - 20px);
+    max-width: 500px;
+    padding-bottom:20px;
+}

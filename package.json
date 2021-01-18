@@ -1,20 +1,33 @@
 {
-  "name": "plus-ennakko",
+  "name": "antti-corona-steamgraph",
+  "homepage": "antti-corona-steamgraph",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "d3-array": "^2.9.1",
+    "d3-fetch": "^2.0.0",
+    "d3-format": "^2.0.0",
+    "d3-scale": "^3.2.3",
+    "d3-scale-chromatic": "^2.0.0",
+    "d3-selection": "^2.0.0",
+    "d3-shape": "^2.0.0",
+    "d3-time": "^2.0.0",
+    "d3-time-format": "^3.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
+    "react-scrollama": "^2.2.15",
+    "sma": "^0.1.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "deploy": "npm run build && dataviz-deploy sync lusi-test $npm_package_name",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
